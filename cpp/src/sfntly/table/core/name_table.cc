@@ -180,7 +180,7 @@ void NameTable::NameEntryBuilder::SetName(const std::vector<uint8_t>& name_bytes
   name_entry_->name_bytes_.clear();
   std::copy(name_bytes.begin(),
             name_bytes.end(),
-            name_entry_->name_bytes_.begin());
+            std::back_inserter(name_entry_->name_bytes_));
 }
 
 void NameTable::NameEntryBuilder::SetName(const std::vector<uint8_t>& name_bytes,
@@ -189,7 +189,7 @@ void NameTable::NameEntryBuilder::SetName(const std::vector<uint8_t>& name_bytes
   name_entry_->name_bytes_.clear();
   std::copy(name_bytes.begin() + offset,
             name_bytes.begin() + offset + length,
-            name_entry_->name_bytes_.begin());
+            std::back_inserter(name_entry_->name_bytes_));
 }
 
 void NameTable::NameEntryBuilder::Init(int32_t platform_id,
